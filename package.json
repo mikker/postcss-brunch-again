@@ -1,7 +1,7 @@
 {
-  "name": "postcss-brunch",
-  "version": "2.0.1",
-  "author": "Vincent De Oliveira",
+  "name": "postcss-brunch-again",
+  "version": "0.1.0",
+  "author": "Mikkel Malmberg",
   "description": "Adds PostCSS support to brunch.",
   "scripts": {
     "test": "mocha test"
@@ -14,19 +14,18 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/brunch/postcss-brunch.git"
+    "url": "https://github.com/mikker/postcss-brunch-again.git"
   },
   "dependencies": {
-    "loggy": "~0.3.5",
-    "postcss": "^5.0.0",
-    "progeny": "~0.9.0"
+    "postcss": "^5.1.2",
+    "progeny": "^0.9.0"
   },
   "license": "MIT",
   "devDependencies": {
-    "autoprefixer": "^6.3.7",
+    "autoprefixer": "^6.4.0",
     "css-mqpacker": "^5.0.1",
     "csswring": "^5.1.0",
-    "mocha": "^3.0.0",
+    "mocha": "^3.0.2",
     "postcss-import": "^8.1.2",
     "should": "^11.1.0"
   }
