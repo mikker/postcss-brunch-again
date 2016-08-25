@@ -1,41 +1,38 @@
-postcss-brunch
-==============
+# postcss-brunch-again
 
-Adds [PostCSS](https://github.com/ai/postcss) support to [brunch](https://github.com/brunch/brunch)
-
+Adds [PostCSS](https://github.com/ai/postcss) support to [brunch](https://github.com/brunch/brunch) [again](https://github.com/brunch/postcss-brunch).
 
 ## Install
 
-	npm install --save-dev postcss-brunch
+    npm install --save-dev postcss-brunch-again
 
 ## Add plugins
 
-Add all plugins you want to use with PostCSS in your `package.json` file too. For example, here we add [Autoprefixer](https://github.com/ai/autoprefixer) and [CSS Wring](https://github.com/hail2u/node-csswring).
+    npm install --save-dev postcss-import postcss-cssnext
 
-```javascript
-{
-  "postcss-brunch": "^2.0",
-  "autoprefixer": "^6.3",
-  "csswring": "^5.1"
-}
-```
+## Configure
 
-Or, use `npm install --save-dev <plugin>` to get latest version in package.json.
-
-Then, configure `postcss-brunch` in the `plugins` section of your `brunch-config` file, like so:
+`brunch-config.js`:
 
 ```javascript
 plugins: {
   postcss: {
     processors: [
-      require('autoprefixer')(['last 8 versions']),
-      require('csswring')
+      require('postcss-import')({ path: 'dir/with/css' }),
+      require('postcss-cssnext')()
     ]
   }
 }
 ```
 
-You can add as many processors as you want. CSS will be parsed only once. See [PostCSS](https://github.com/ai/postcss) and each plugins docs.
+## Thanks
+
+To the [original implementation](https://github.com/brunch/postcss-brunch).
+
+## Development
+
+    npm install
+    npm run test
 
 ## License
 
