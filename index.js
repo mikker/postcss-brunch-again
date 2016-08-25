@@ -41,7 +41,7 @@ class PostCSSPlugin {
   }
 }
 
-Object.assign(PostCSSPlugin, {
+Object.assign(PostCSSPlugin.prototype, {
   brunchPlugin: true,
   type: 'stylesheet',
   extension: 'css'

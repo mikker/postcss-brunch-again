@@ -25,8 +25,12 @@ describe('PostCSSPlugin', () => {
     config = Object.assign({}, defaultConfig)
   })
 
-  it('is an object', () => {
-    new PostCSSPlugin(config).should.be.an.Object
+  it('is a Brunch plugin', () => {
+    const plugin = new PostCSSPlugin(config)
+    plugin.should.be.an.Object
+    plugin.brunchPlugin.should.eql(true)
+    plugin.extension.should.eql('css')
+    plugin.type.should.eql('stylesheet')
   })
 
   it('compiles sample file', () => {
