@@ -1,3 +1,5 @@
+'use strict'
+
 const path = require('path')
 const progeny = require('progeny')
 const postcss = require('postcss')
