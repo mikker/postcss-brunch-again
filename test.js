@@ -1,7 +1,7 @@
+/* globals it, describe, beforeEach */
 const PostCSSPlugin = require('./index')
 const fs = require('fs')
-const should = require('should')
-const Mocha = require('mocha')
+const expect = require('expect')
 
 const defaultProcessors = [
   require('autoprefixer')({browsers: 'last 99 versions'}),
@@ -18,8 +18,7 @@ const defaultConfig = {
 }
 
 describe('PostCSSPlugin', () => {
-
-  let plugin, config
+  let config
 
   beforeEach(() => {
     config = Object.assign({}, defaultConfig)
@@ -27,19 +26,19 @@ describe('PostCSSPlugin', () => {
 
   it('is a Brunch plugin', () => {
     const plugin = new PostCSSPlugin(config)
-    plugin.should.be.an.Object
-    plugin.brunchPlugin.should.eql(true)
-    plugin.extension.should.eql('css')
-    plugin.type.should.eql('stylesheet')
+    expect(plugin).toBeA(Object)
+    expect(plugin.brunchPlugin).toBe(true)
+    expect(plugin.extension).toEqual('css')
+    expect(plugin.type).toEqual('stylesheet')
   })
 
   it('compiles sample file', () => {
-     const data = fs.readFileSync('fixtures/sample.css', 'utf-8')
-     const expected = fs.readFileSync('fixtures/sample.out.css', 'utf-8')
+    const data = fs.readFileSync('fixtures/sample.css', 'utf-8')
+    const expected = fs.readFileSync('fixtures/sample.out.css', 'utf-8')
 
     return new PostCSSPlugin(config).compile({data})
       .then((actual) => {
-        actual.data.should.eql(expected)
+        expect(actual.data).toEqual(expected)
       })
   })
 
@@ -56,7 +55,7 @@ describe('PostCSSPlugin', () => {
     return new PostCSSPlugin(config)
       .compile({data, path: 'fixtures/sample.css'})
       .then((file) => {
-        file.map.should.be.eql(map)
+        expect(file.map).toEqual(map)
       })
   })
 
@@ -70,8 +69,7 @@ describe('PostCSSPlugin', () => {
 
     return new PostCSSPlugin(config).compile({data})
       .then((actual) => {
-        (actual.data + '\n').should.eql(expected)
+        expect(actual.data + '\n').toEqual(expected)
       })
   })
-
 })

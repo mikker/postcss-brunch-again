@@ -25,8 +25,8 @@
     "autoprefixer": "^6.4.0",
     "css-mqpacker": "^5.0.1",
     "csswring": "^5.1.0",
+    "expect": "^1.20.2",
     "mocha": "^3.0.2",
-    "postcss-import": "^8.1.2",
-    "should": "^11.1.0"
+    "postcss-import": "^8.1.2"
   }
 }
